@@ -24,6 +24,7 @@ import {
   ImageMap,
   Image,
   Variations,
+  InitialSelectedModes,
 } from './types'
 
 const keyCount = compose(
@@ -95,6 +96,46 @@ const useAllSelectedEvent = (
   }, [dispatch, selectedVariations, variationsCount])
 }
 
+const useInitialMode = ({
+  skuSelected,
+  variations,
+  initialSelectedMode,
+}: {
+  skuSelected?: ProductItem
+  variations: Variations
+  initialSelectedMode: InitialSelectedModes
+}) => {
+  const { query } = useRuntime()
+  const hasSkuInQuery = !!(query && query.skuId)
+  return useMemo(() => {
+    const emptyVariations = buildEmptySelectedVariation(variations)
+    if (!skuSelected) {
+      return emptyVariations
+    }
+    const parsedSku = parseSku(skuSelected)
+
+    if (initialSelectedMode === InitialSelectedModes.complete) {
+      return selectedVariationFromItem(parsedSku, variations)
+    }
+    if (initialSelectedMode === InitialSelectedModes.image) {
+      const colorVariationName = parsedSku.variations.find(isColor)
+      return {
+        ...emptyVariations,
+        ...(colorVariationName
+          ? {
+              [colorVariationName]:
+                parsedSku.variationValues[colorVariationName],
+            }
+          : {}),
+      }
+    }
+    // if here, is value 'empty', check for hasSkuInQuery
+    return hasSkuInQuery
+      ? selectedVariationFromItem(parsedSku, variations)
+      : emptyVariations
+  }, [skuSelected, variations, initialSelectedMode, hasSkuInQuery])
+}
+
 interface Props {
   skuItems: ProductItem[]
   onSKUSelected?: (skuId: string) => void
@@ -104,6 +145,7 @@ interface Props {
   skuSelected?: ProductItem
   hideImpossibleCombinations?: boolean
   showValueNameForImageVariation?: boolean
+  initialSelectedMode?: InitialSelectedModes
 }
 
 /**
@@ -118,6 +160,7 @@ const SKUSelectorContainer: FC<Props> = ({
   skuSelected,
   hideImpossibleCombinations = true,
   showValueNameForImageVariation = false,
+  initialSelectedMode = InitialSelectedModes.complete,
 }) => {
   const variationsCount = keyCount(variations)
   const [
@@ -138,10 +181,13 @@ const SKUSelectorContainer: FC<Props> = ({
     )
   }
 
+  const initialVariations = useInitialMode({
+    skuSelected,
+    variations,
+    initialSelectedMode,
+  })
+
   useEffect(() => {
-    const initialVariations = skuSelected
-      ? selectedVariationFromItem(parseSku(skuSelected), variations)
-      : buildEmptySelectedVariation(variations)
     setSelectedVariations(initialVariations)
   }, [variations])
 
