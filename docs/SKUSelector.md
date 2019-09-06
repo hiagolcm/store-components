@@ -61,11 +61,19 @@ Image
 
 These are properties that you can customize in your `blocks.json` file.
 
-| Prop name                      | Type    | Description                                                                                                                                                                                         | Default value |
-| ------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| hideImpossibleCombinations     | Boolean | If true, if a variation option leads to a combination that does not exist, that option won't appear. If false, it will appear but won't be pressable and will appear faded, will much less opacity. | `true`        |
-| maxItems                       | Number  | The maximum number of items to be displayed of a variation before showing the see more button. If the see more button should appear, it will be displayed `maxItems` - 2 options before the button  | `10`          |
-| showValueNameForImageVariation | Boolean | If true, show the name for the selected image variation to the right of the variation name. For example: `Color Red`, if the red color variation is selected.                                       | `false`       |
+| Prop name                      | Type                 | Description                                                                                                                                                                                         | Default value |
+| ------------------------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| hideImpossibleCombinations     | Boolean              | If true, if a variation option leads to a combination that does not exist, that option won't appear. If false, it will appear but won't be pressable and will appear faded, will much less opacity. | `true`        |
+| maxItems                       | Number               | The maximum number of items to be displayed of a variation before showing the see more button. If the see more button should appear, it will be displayed `maxItems` - 2 options before the button  | `10`          |
+| showValueNameForImageVariation | Boolean              | If true, show the name for the selected image variation to the right of the variation name. For example: `Color Red`, if the red color variation is selected.                                       | `false`       |
+| initialSelection               | InitialSelectionEnum | Control the initial selection chosen for the variations when page is loaded.                                                                                                                        | `complete`    |
+
+Values and description for `InitialSelectionEnum`:
+| Value | Name | Description |
+| ------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `complete` | Complete | It will selected the variations values for the first SKU available in the product possible items |
+| `image` | Image | It will select the variation for variations with images (like Color). All other variations will be unselected |
+| `empty` | Empty | All variations will appear as unselected on first load |
 
 #### Content API
 

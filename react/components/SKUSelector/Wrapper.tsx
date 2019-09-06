@@ -3,7 +3,7 @@ import useProduct from 'vtex.product-context/useProduct'
 import { pathOr } from 'ramda'
 
 import SKUSelector from './index'
-import { ProductItem, Variations, InitialSelectedModes } from './types'
+import { ProductItem, Variations, InitialSelectionType } from './types'
 
 const useVariations = (skuItems: ProductItem[], shouldNotShow: boolean) => {
   const result = useMemo(() => {
@@ -40,7 +40,7 @@ interface Props {
   seeMoreLabel: string
   hideImpossibleCombinations?: boolean
   showValueNameForImageVariation?: boolean
-  initialSelectedMode?: InitialSelectedModes
+  initialSelection?: InitialSelectionType
 }
 
 const SKUSelectorWrapper: StorefrontFC<Props> = props => {
@@ -77,7 +77,7 @@ const SKUSelectorWrapper: StorefrontFC<Props> = props => {
       variations={variations}
       hideImpossibleCombinations={props.hideImpossibleCombinations}
       showValueNameForImageVariation={props.showValueNameForImageVariation}
-      initialSelectedMode={props.initialSelectedMode}
+      initialSelection={props.initialSelection}
     />
   )
 }
