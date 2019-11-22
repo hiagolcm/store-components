@@ -3,7 +3,11 @@
     "component": "Logo"
   },
   "search-bar": {
-    "component": "SearchBar"
+    "component": "SearchBar",
+    "required": ["results-list"]
+  },
+  "results-list": {
+    "component": "ResultsList"
   },
   "buy-button": {
     "component": "BuyButton"

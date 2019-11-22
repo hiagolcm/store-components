@@ -3,13 +3,11 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Downshift from 'downshift'
 import debounce from 'debounce'
-import { NoSSR } from 'vtex.render-runtime'
+import { NoSSR, useRuntime, ExtensionPoint } from 'vtex.render-runtime'
 import { Overlay } from 'vtex.react-portal'
-import { useRuntime } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
 
 import AutocompleteInput from './AutocompleteInput'
-import ResultsLists from './ResultsList'
 
 const CSS_HANDLES = ['searchBarContainer', 'searchBarInnerContainer']
 const SEARCH_DELAY_TIME = 500
@@ -28,6 +26,7 @@ const SearchBar = ({
   maxWidth,
   attemptPageTypeSearch,
   customSearchPageUrl,
+  autocompleteAlignment,
 }) => {
   const container = useRef()
   const { navigate } = useRuntime()
@@ -156,8 +155,9 @@ const SearchBar = ({
                   onChange: onInputChange,
                 })}
               />
-              <Overlay alignment="right">
-                <ResultsLists
+              <Overlay alignment={autocompleteAlignment}>
+                <ExtensionPoint
+                  id="results-list"
                   parentContainer={container}
                   {...{
                     attemptPageTypeSearch,
@@ -208,6 +208,8 @@ SearchBar.propTypes = {
   customSearchPageUrl: PropTypes.string,
   iconBlockClass: PropTypes.string,
   attemptPageTypeSearch: PropTypes.bool,
+  /* Autocomplete Horizontal alignment */
+  autocompleteAlignment: PropTypes.string,
 }
 
 export default SearchBar
