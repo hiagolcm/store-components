@@ -4,9 +4,9 @@
   },
   "search-bar": {
     "component": "SearchBar",
-    "required": ["results-list"]
+    "allowed": ["autocomplete-result-list"]
   },
-  "results-list": {
+  "autocomplete-result-list": {
     "component": "ResultsList"
   },
   "buy-button": {

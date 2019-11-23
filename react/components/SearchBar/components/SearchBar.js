@@ -1,16 +1,24 @@
-import React, { useRef, useCallback, useState, useEffect } from 'react'
+import React, { useRef, useCallback, useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Downshift from 'downshift'
 import debounce from 'debounce'
-import { NoSSR, useRuntime, ExtensionPoint } from 'vtex.render-runtime'
+import {
+  NoSSR,
+  useRuntime,
+  ExtensionPoint,
+  useTreePath,
+} from 'vtex.render-runtime'
 import { Overlay } from 'vtex.react-portal'
 import { useCssHandles } from 'vtex.css-handles'
+
+import ResultsList from '../../ResutsList'
 
 import AutocompleteInput from './AutocompleteInput'
 
 const CSS_HANDLES = ['searchBarContainer', 'searchBarInnerContainer']
 const SEARCH_DELAY_TIME = 500
+const AUTCOMPLETE_EXTENSION_ID = 'autocomplete-result-list'
 
 const SearchBar = ({
   placeholder,
@@ -29,7 +37,8 @@ const SearchBar = ({
   autocompleteAlignment,
 }) => {
   const container = useRef()
-  const { navigate } = useRuntime()
+  const { navigate, extensions } = useRuntime()
+  const { treePath } = useTreePath()
   const handles = useCssHandles(CSS_HANDLES)
   const [searchTerm, setSearchTerm] = useState(inputValue)
 
@@ -107,6 +116,15 @@ const SearchBar = ({
     />
   )
 
+  const autocompleteExtension =
+    extensions[`${treePath}/${AUTCOMPLETE_EXTENSION_ID}`]
+
+  const SelectedResultsList = useMemo(() => {
+    return autocompleteExtension
+      ? props => <ExtensionPoint id={AUTCOMPLETE_EXTENSION_ID} {...props} />
+      : props => <ResultsList {...props} />
+  }, [autocompleteExtension])
+
   return (
     <div
       ref={container}
@@ -156,8 +174,7 @@ const SearchBar = ({
                 })}
               />
               <Overlay alignment={autocompleteAlignment}>
-                <ExtensionPoint
-                  id="results-list"
+                <SelectedResultsList
                   parentContainer={container}
                   {...{
                     attemptPageTypeSearch,
