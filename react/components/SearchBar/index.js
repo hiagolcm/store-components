@@ -62,6 +62,7 @@ class SearchBarContainer extends Component {
         id: 'store/search.placeholder',
       }),
       autocompleteAlignment = 'right',
+      openAutocompleteOnFocus = true,
     } = this.props
 
     const { inputValue } = this.state
@@ -82,6 +83,7 @@ class SearchBarContainer extends Component {
         attemptPageTypeSearch={attemptPageTypeSearch}
         customSearchPageUrl={customSearchPageUrl}
         autocompleteAlignment={autocompleteAlignment}
+        openAutocompleteOnFocus={openAutocompleteOnFocus}
       />
     )
   }
@@ -113,6 +115,8 @@ SearchBarContainer.propTypes = {
   placeholder: PropTypes.string,
   /* Autocomplete Horizontal alignment */
   autocompleteAlignment: PropTypes.string,
+  /** Identify if autocomplete should be open on input focus or not */
+  openAutocompleteOnFocus: PropTypes.bool,
 }
 
 export default injectIntl(SearchBarContainer)

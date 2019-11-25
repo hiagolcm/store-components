@@ -35,6 +35,7 @@ const SearchBar = ({
   attemptPageTypeSearch,
   customSearchPageUrl,
   autocompleteAlignment,
+  openAutocompleteOnFocus,
 }) => {
   const container = useRef()
   const { navigate, extensions } = useRuntime()
@@ -145,6 +146,7 @@ const SearchBar = ({
             highlightedIndex,
             isOpen,
             closeMenu,
+            openMenu,
           }) => (
             <div
               className={classNames(
@@ -171,6 +173,7 @@ const SearchBar = ({
                   placeholder,
                   value: inputValue,
                   onChange: onInputChange,
+                  onFocus: openAutocompleteOnFocus ? openMenu : undefined,
                 })}
               />
               <Overlay alignment={autocompleteAlignment}>
@@ -227,6 +230,8 @@ SearchBar.propTypes = {
   attemptPageTypeSearch: PropTypes.bool,
   /* Autocomplete Horizontal alignment */
   autocompleteAlignment: PropTypes.string,
+  /** Identify if autocomplete should be open on input focus or not */
+  openAutocompleteOnFocus: PropTypes.bool,
 }
 
 export default SearchBar
