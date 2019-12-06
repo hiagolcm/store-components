@@ -36,6 +36,8 @@ const SearchBar = ({
   customSearchPageUrl,
   autocompleteAlignment,
   openAutocompleteOnFocus,
+  blurOnSubmit,
+  submitOnIconClick,
 }) => {
   const container = useRef()
   const { navigate, extensions } = useRuntime()
@@ -161,11 +163,18 @@ const SearchBar = ({
                 onClearInput={onClearInput}
                 hasIconLeft={hasIconLeft}
                 iconClasses={iconClasses}
+                onGoToSearchPage={onGoToSearchPage}
+                submitOnIconClick={submitOnIconClick}
+                openAutocompleteOnFocus={openAutocompleteOnFocus}
+                openMenu={openMenu}
                 {...getInputProps({
                   onKeyDown: event => {
                     // Only call default search function if user doesn't
                     // have any item highlighted in the menu options
                     if (event.key === 'Enter' && highlightedIndex === null) {
+                      if (blurOnSubmit) {
+                        event.currentTarget.blur()
+                      }
                       onGoToSearchPage()
                       closeMenu()
                     }
@@ -232,6 +241,10 @@ SearchBar.propTypes = {
   autocompleteAlignment: PropTypes.string,
   /** Identify if autocomplete should be open on input focus or not */
   openAutocompleteOnFocus: PropTypes.bool,
+  /** Identify if input should blur on submit */
+  blurOnSubmit: PropTypes.bool,
+  /** Identify if icon should submit on click */
+  submitOnIconClick: PropTypes.bool,
 }
 
 export default SearchBar

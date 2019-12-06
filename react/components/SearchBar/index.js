@@ -62,7 +62,9 @@ class SearchBarContainer extends Component {
         id: 'store/search.placeholder',
       }),
       autocompleteAlignment = 'right',
-      openAutocompleteOnFocus = true,
+      openAutocompleteOnFocus = false,
+      blurOnSubmit = false,
+      submitOnIconClick = false,
     } = this.props
 
     const { inputValue } = this.state
@@ -84,6 +86,8 @@ class SearchBarContainer extends Component {
         customSearchPageUrl={customSearchPageUrl}
         autocompleteAlignment={autocompleteAlignment}
         openAutocompleteOnFocus={openAutocompleteOnFocus}
+        blurOnSubmit={blurOnSubmit}
+        submitOnIconClick={submitOnIconClick}
       />
     )
   }
@@ -117,6 +121,10 @@ SearchBarContainer.propTypes = {
   autocompleteAlignment: PropTypes.string,
   /** Identify if autocomplete should be open on input focus or not */
   openAutocompleteOnFocus: PropTypes.bool,
+  /** Identify if input should blur on submit */
+  blurOnSubmit: PropTypes.bool,
+  /** Identify if icon should submit on click */
+  submitOnIconClick: PropTypes.bool,
 }
 
 export default injectIntl(SearchBarContainer)
