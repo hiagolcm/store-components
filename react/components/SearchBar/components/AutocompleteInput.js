@@ -25,6 +25,7 @@ const AutocompleteInput = ({
   onGoToSearchPage,
   submitOnIconClick,
   openMenu,
+  inputErrorMessage,
   ...restProps
 }) => {
   const inputRef = useRef(null)
@@ -82,6 +83,8 @@ const AutocompleteInput = ({
           prefix={hasIconLeft && prefix}
           suffix={suffix}
           {...restProps}
+          error={!!inputErrorMessage}
+          errorMessage={inputErrorMessage}
         />
       </div>
     </div>
@@ -120,6 +123,8 @@ AutocompleteInput.propTypes = {
   onGoToSearchPage: PropTypes.func.isRequired,
   /** Identify if icon should submit on click */
   submitOnIconClick: PropTypes.bool,
+  /** Error message showed in search input */
+  inputErrorMessage: PropTypes.string,
 }
 
 export default AutocompleteInput
