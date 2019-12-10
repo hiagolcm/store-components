@@ -1,92 +1,9 @@
 {
-  "logo": {
-    "component": "Logo"
-  },
-  "search-bar": {
+  "search-bar-exitocol": {
     "component": "SearchBar",
     "allowed": ["autocomplete-result-list"]
   },
   "autocomplete-result-list": {
     "component": "ResultsList"
-  },
-  "buy-button": {
-    "component": "BuyButton"
-  },
-  "product-name": {
-    "component": "ProductName"
-  },
-  "product-brand": {
-    "component": "ProductBrand"
-  },
-  "product-images": {
-    "component": "ProductImages"
-  },
-  "product-price": {
-    "component": "ProductPrice",
-    "content": {
-      "$ref": "#/definitions/ProductPrice"
-    }
-  },
-  "product-description": {
-    "component": "ProductDescription"
-  },
-  "product-separator": {
-    "component": "ProductSeparator"
-  },
-  "sku-selector": {
-    "component": "SKUSelector",
-    "content": {
-      "$ref": "app:exitocol.store-components#/definitions/SKUSelector"
-    }
-  },
-  "shipping-simulator": {
-    "component": "ShippingSimulator"
-  },
-  "share": {
-    "component": "Share"
-  },
-  "availability-subscriber": {
-    "component": "AvailabilitySubscriber"
-  },
-  "product-specifications": {
-    "component": "ProductSpecifications"
-  },
-  "product-highlights": {
-    "component": "ProductHighlights"
-  },
-  "info-card": {
-    "component": "InfoCard",
-    "content": {
-      "$ref": "#/definitions/InfoCard"
-    }
-  },
-  "user-address": {
-    "allowed": ["modal"],
-    "component": "UserAddress"
-  },
-  "product-services": {
-    "component": "ProductServices"
-  },
-  "newsletter": {
-    "component": "Newsletter",
-    "content": {
-      "$ref": "app:exitocol.store-components#/definitions/Newsletter"
-    }
-  },
-  "notification": {},
-  "notification.inline": {
-    "component": "NotificationInline"
-  },
-  "notification.bar": {
-    "component": "NotificationBar",
-    "content": {
-      "$ref": "app:exitocol.store-components#/definitions/NotificationBar"
-    }
-  },
-  "image": {
-    "component": "Image",
-    "content": {
-      "$ref": "app:vtex.store-image#/definitions/Image"
-    }
   }
 }

@@ -1,7 +1,7 @@
 {
   "vendor": "exitocol",
   "name": "store-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "title": "VTEX Store Components",
   "defaultLocale": "pt-BR",
   "description": "The VTEX store components for that render apps can use",
