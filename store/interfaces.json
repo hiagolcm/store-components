@@ -36,7 +36,7 @@
   "sku-selector": {
     "component": "SKUSelector",
     "content": {
-      "$ref": "app:vtex.store-components#/definitions/SKUSelector"
+      "$ref": "app:exitocol.store-components#/definitions/SKUSelector"
     }
   },
   "shipping-simulator": {
@@ -70,7 +70,7 @@
   "newsletter": {
     "component": "Newsletter",
     "content": {
-      "$ref": "app:vtex.store-components#/definitions/Newsletter"
+      "$ref": "app:exitocol.store-components#/definitions/Newsletter"
     }
   },
   "notification": {},
@@ -80,7 +80,7 @@
   "notification.bar": {
     "component": "NotificationBar",
     "content": {
-      "$ref": "app:vtex.store-components#/definitions/NotificationBar"
+      "$ref": "app:exitocol.store-components#/definitions/NotificationBar"
     }
   },
   "image": {

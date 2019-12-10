@@ -35,7 +35,7 @@ To use this app, you need to import in your dependencies on `manifest.json`.
 
 ```json
   "dependencies": {
-    "vtex.store-components": "3.x"
+    "exitocol.store-components": "3.x"
   }
 ```
 
@@ -66,7 +66,7 @@ To use this CSS API, you must add the `styles` builder and create an app styling
   }
 ```
 
-2. Create a file called `vtex.store-components.css` inside the `styles/css` folder. Add your custom styles:
+2. Create a file called `exitocol.store-components.css` inside the `styles/css` folder. Add your custom styles:
 
 ```css
 .container {
@@ -153,7 +153,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://github.com/hapoza"><img src="https://avatars3.githubusercontent.com/u/27775611?v=4" width="100px;" alt="Dan"/><br /><sub><b>Dan</b></sub></a><br /><a href="https://github.com/vtex-apps/store-components/commits?author=hapoza" title="Code">=»</a></td></tr></table>
+<table><tr><td align="center"><a href="https://github.com/hapoza"><img src="https://avatars3.githubusercontent.com/u/27775611?v=4" width="100px;" alt="Dan"/><br /><sub><b>Dan</b></sub></a><br /><a href="https://github.com/vtex-apps/store-components/commits?author=hapoza" title="Code">=ï¿½</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 

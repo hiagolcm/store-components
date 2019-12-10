@@ -19,7 +19,7 @@ You should follow the usage instruction in the main [README](/README.md#usage).
 
 To import it into your code: 
 ```js
-import { Slider } from 'vtex.store-components'
+import { Slider } from 'exitocol.store-components'
 ```
 
 You can use it in your code like a React component with the jsx tag: `<Slider>`. 

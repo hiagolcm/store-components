@@ -19,7 +19,7 @@ You should follow the usage instruction in the main [README](https://github.com/
 
 To import it into your code: 
 ```js
-import { Container } from 'vtex.store-components'
+import { Container } from 'exitocol.store-components'
 ```
 
 You can use it in your code like a React component with the jsx tag: `<Container>`. 
