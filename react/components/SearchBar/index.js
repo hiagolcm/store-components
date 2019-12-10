@@ -66,7 +66,7 @@ class SearchBarContainer extends Component {
       blurOnSubmit = false,
       submitOnIconClick = false,
       minSearchTermLength,
-      autocompleteFullWindow=false,
+      autocompleteFullWindow = false,
     } = this.props
 
     const { inputValue } = this.state
