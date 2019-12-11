@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- `minSearchTermLength` prop to `SearchBar`. Defines the minimum search term length allowed.
+- `autocompleteAlignment` prop to `SearchBar`. Autocomplete Horizontal alignment.
+- `openAutocompleteOnFocus` prop to `SearchBar`. Identify if autocomplete should be open on input focus or not.
+- `blurOnSubmit` prop to `SearchBar`. Identify if input should blur on submit.
+- `autocompleteFullWindow` prop to `SearchBar`. If true, the autocomplete will fill the whole window horizontally.
+- `submitOnIconClick` prop to `SearchBar`. Identify if icon should submit on click.
+
+### Changed
+- Now, the search bar input and the autocomplete are different components. `search-bar` and `autocomplete-result-list` respectively.
+
 ## [3.95.0] - 2019-12-11
 ### Added
 - Support for `icon-search` and `icon-close` blocks to be received by `SearchBar` components.
