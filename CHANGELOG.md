@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Now, the search bar input and the autocomplete are different components. `search-bar` and `autocomplete-result-list` respectively.
 
+## [3.95.3] - 2019-12-16
+
+## [3.95.2] - 2019-12-16
+- Added spec `farbe` for DE
+
+## [3.95.1] - 2019-12-12
+### Fixed
+-  Problematic issue with the container css handle.
+
 ## [3.95.0] - 2019-12-11
 ### Added
 - Support for `icon-search` and `icon-close` blocks to be received by `SearchBar` components.
